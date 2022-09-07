@@ -106,7 +106,6 @@ build() {
 	make -j40
 	#make -j40 ARCH="$_carch" CC="${CC:-gcc}" \
 	#KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-Alpine"
-	done
 }
 
 _package() {
