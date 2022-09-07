@@ -48,7 +48,7 @@ case "$_carch" in
 riscv64) _carch="riscv" ;;
 esac
 
-prepare() {
+#prepare() {
 #	local _patch_failed=
 #  cd $builddir
 #	case $pkgver in
@@ -78,26 +78,27 @@ prepare() {
 #	fi
 #
 	# remove localversion from patch if any
-	rm -f localversion*
-	oldconfig
-}
+#	rm -f localversion*
+#	oldconfig
+#}
 
-oldconfig() {
-	for i in $_flavors; do
-		local _config=config-$i.${CARCH}
-		mkdir -p "$builddir"
-		echo "-$pkgrel-$i" > "$builddir"/localversion-alpine \
-			|| return 1
-
-		cp "$srcdir"/$_config "$builddir"/.config
-		make -C $builddir \
-			O="$builddir" \
-			ARCH="$_carch" \
-			listnewconfig oldconfig
-	done
-}
+#oldconfig() {
+#	for i in $_flavors; do
+#		local _config=config-$i.${CARCH}
+#		mkdir -p "$builddir"
+#		echo "-$pkgrel-$i" > "$builddir"/localversion-alpine \
+#			|| return 1
+#
+#		cp "$srcdir"/$_config "$builddir"/.config
+#		make -C $builddir \
+#			O="$builddir" \
+#			ARCH="$_carch" \
+#			listnewconfig oldconfig
+#	done
+#}
 
 build() {
+	cp "$srcdir"/config-edge.riscv64 "$builddir"/.config
 	unset LDFLAGS
 	export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
 	for i in $_flavors; do
