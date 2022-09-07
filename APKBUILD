@@ -99,12 +99,13 @@ esac
 
 build() {
 	cp "$srcdir"/config-edge.riscv64 "$builddir"/.config
-	unset LDFLAGS
-	export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
-	for i in $_flavors; do
-		cd "$builddir"
-		make -j40 ARCH="$_carch" CC="${CC:-gcc}" \
-			KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-Alpine"
+	#unset LDFLAGS
+	#export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
+	#for i in $_flavors; do
+	cd "$builddir"
+	make -j40
+	#make -j40 ARCH="$_carch" CC="${CC:-gcc}" \
+	#KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-Alpine"
 	done
 }
 
