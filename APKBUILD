@@ -23,8 +23,7 @@ _config=${config:-config-edge.${CARCH}}
 install=
 
 subpackages="$pkgname-dev:_dev:$CBUILD_ARCH $pkgname-doc:_doc"
-source="http://hougearch.litterhougelangley.club/linux/linux-$pkgver.tar.xz"
-		"http://hougearch.litterhougelangley.club/linux/config-edge.riscv64"
+source="http://hougearch.litterhougelangley.club/linux/linux-$pkgver.tar.xz http://hougearch.litterhougelangley.club/linux/config-edge.riscv64"
 
 builddir="$srcdir/linux-${_kernver}"
 arch="riscv64"
