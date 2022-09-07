@@ -25,7 +25,7 @@ install=
 subpackages="$pkgname-dev:_dev:$CBUILD_ARCH $pkgname-doc:_doc"
 source="http://hougearch.litterhougelangley.club/linux/linux-$pkgver.tar.xz http://hougearch.litterhougelangley.club/linux/config-edge.riscv64"
 
-builddir="$srcdir/linux-${_kernver}"
+builddir="$srcdir/linux-${_pkgver}"
 arch="riscv64"
 license="GPL-2.0"
 
