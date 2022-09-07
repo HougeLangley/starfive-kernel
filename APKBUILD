@@ -109,9 +109,9 @@ build() {
 }
 
 _package() {
-	local _buildflavor="$1" _outdir="$2"
-	local _abi_release=${pkgver}-${pkgrel}-${_buildflavor}
-	export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
+	#local _buildflavor="$1" _outdir="$2"
+	#local _abi_release=${pkgver}-${pkgrel}-${_buildflavor}
+	#export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
 
 	cd "$builddir"
 	# modules_install seems to regenerate a defect Modules.symvers on s390x. Work
